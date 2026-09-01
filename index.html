@@ -30,6 +30,16 @@
   hr { border: 0; border-top: 1px solid var(--line); margin: 56px 0 40px; }
   strong { color: var(--text); }
   a { color: var(--accent); }
+  /* Le selecteur de langue. Deux ancres, aucun JavaScript : la page doit
+     s'ouvrir et se lire meme si un lecteur bloque les scripts, et c'est de
+     toute facon un document legal, pas une application. */
+  .langs { display: flex; gap: 8px; margin-bottom: 32px; }
+  .langs a {
+    text-decoration: none; font-size: 14px; font-weight: 600;
+    border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px;
+    color: var(--dim);
+  }
+  .langs a:hover { border-color: var(--accent); color: var(--accent); }
   .todo {
     background: rgba(168, 73, 44, .1); border-left: 3px solid #A8492C;
     padding: 10px 14px; border-radius: 0 8px 8px 0; color: var(--text);
@@ -39,7 +49,12 @@
 <body>
 <main>
 
-<h1>☁️ Unhaze — Datenschutz</h1>
+<nav class="langs">
+  <a href="#de">Deutsch</a>
+  <a href="#en">English</a>
+</nav>
+
+<h1 id="de">☁️ Unhaze — Datenschutz</h1>
 <p class="date">Unhaze · Stand: 1. September 2026</p>
 
 <p><strong>Unhaze speichert alles auf deinem Gerät. Es gibt kein Konto, keinen
@@ -99,7 +114,8 @@ unvollständig.</p>
 
 <hr>
 
-<h1>☁️ Unhaze — Privacy</h1>
+<section lang="en">
+<h1 id="en">☁️ Unhaze — Privacy</h1>
 <p class="date">Unhaze · Last updated: 1 September 2026</p>
 
 <p><strong>Unhaze keeps everything on your device. There is no account, no
@@ -154,6 +170,8 @@ No personal data is collected in any case.</p>
 <h2>Contact</h2>
 <p class="todo"><strong>[PUT YOUR EMAIL ADDRESS HERE]</strong> — Apple requires
 a reachable contact. The page is incomplete without one.</p>
+
+</section>
 
 </main>
 </body>
